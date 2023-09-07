@@ -47,7 +47,7 @@ toPgIdentifier x = PgIdentifier $ "\"" <> strictlyReplaceQuotes (trimNullChars x
     trimNullChars :: ByteString -> ByteString
     trimNullChars = B.takeWhile (/= '\x0')
     strictlyReplaceQuotes :: ByteString -> ByteString
-    strictlyReplaceQuotes = toS . replace "\"" ("\"\"" :: ByteString)
+    strictlyReplaceQuotes = toS::ByteString . replace "\"" ("\"\"" :: ByteString)
 
 
 
