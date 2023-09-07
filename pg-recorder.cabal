@@ -1,5 +1,5 @@
 name:                pg-recorder
-version:             0.2.0.0
+version:             0.2.0.1
 synopsis:            Initial project template from stack
 description:         Please see README.md
 homepage:            https://github.com/githubuser/pg-recorder#readme
@@ -11,7 +11,7 @@ copyright:           2016 Diogo Biazus
 category:            Web
 build-type:          Simple
 -- extra-source-files:
-cabal-version:       >=1.10
+cabal-version:       >= 2.0
 
 library
   hs-source-dirs:      src
@@ -21,19 +21,20 @@ library
                      , PgRecorder.Database
   other-modules:       Paths_pg_recorder
                      , PgRecorder.Prelude
-  build-depends:       base >= 4.7 && < 5
-                     , protolude >= 0.1.6 && < 0.2
+  build-depends:       base >= 4.7
+                     , protolude >= 0.1.6
                      , optparse-applicative >= 0.12
                      , optparse-text >= 0.1.1.0
-                     , resource-pool >= 0.2.3 && < 0.3
+                     , resource-pool >= 0.2.3
                      , text >= 1.2.2.1
-                     , postgresql-libpq >= 0.9 && < 1.0
-                     , hasql >= 0.19
+                     , postgresql-libpq >= 0.9
+                     , hasql >= 1.4
                      , hasql-pool >= 0.4
-                     , either >= 4.4 && < 5.0
-                     , bytestring >= 0.10.8 && < 0.11
-                     , stringsearch >= 0.3.6 && < 0.4
+                     , either >= 4.4
+                     , bytestring >= 0.10.8
+                     , stringsearch >= 0.3.6 
                      , contravariant
+                     , hasql
 
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings, NoImplicitPrelude
@@ -44,7 +45,8 @@ executable pg-recorder
   ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , pg-recorder
-                     , protolude >= 0.1.6 && < 0.2
+                     , protolude >= 0.1.6
+                     , hasql >= 1.4
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings, NoImplicitPrelude
 
@@ -55,10 +57,10 @@ test-suite pg-recorder-test
   other-modules:       DatabaseSpec
   build-depends:       base
                      , pg-recorder
-                     , resource-pool >= 0.2.3 && < 0.3
-                     , hspec >= 2.2.3 && < 2.5
-                     , protolude >= 0.1.6 && < 0.2
-                     , postgresql-libpq >= 0.9 && < 1.0
+                     , resource-pool >= 0.2.3
+                     , hspec >= 2.2.3
+                     , protolude >= 0.1.6
+                     , postgresql-libpq >= 0.9
                      , hasql >= 0.19
                      , hasql-pool >= 0.4
   ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N

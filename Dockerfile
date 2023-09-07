@@ -1,8 +1,5 @@
-# Use Alpine Linux as base image
-FROM alpine:3.6
-
-# Install libpq and gmp dependencies (dynamic libraries required by the project)
-RUN apk update && apk add libpq gmp libffi
+FROM ubuntu:latest
+RUN apt-get update && apt install -y linux-headers-generic build-essential haskell-platform ghc ca-certificates libghc-postgresql-libpq-dev libghc-zlib-dev libgmp-dev libffi-dev
 
 # Copy the prebuilt binary from stack-work into the container
 # (substitute your project name for 'example')

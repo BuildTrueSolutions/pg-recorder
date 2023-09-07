@@ -1,11 +1,5 @@
-FROM alpine:3.6
+FROM ubuntu:latest
 
-RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk -U add shadow@testing
+RUN apt-get update && apt-get install -y linux-headers-generic build-essential haskell-platform ghc ca-certificates libghc-postgresql-libpq-dev libghc-zlib-dev haskell-stack tar
 
-RUN apk add --update ca-certificates openssl && update-ca-certificates
-
-RUN apk add ghc alpine-sdk linux-headers postgresql-dev zlib-dev
-
-RUN wget -qO- https://get.haskellstack.org/ | sh
 RUN stack config set system-ghc --global true

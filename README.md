@@ -17,3 +17,27 @@ The second parameter is the text containing the message payload. In the case of 
 To run the tests using stack:
 
     $ stack test
+
+## Build Docker Image
+
+Docker Desktop settings - "Features in Development" > "Beta features" > "Use containerd for pulling and storing images" must be enabled, as this will enable Multi-platform images.
+
+Install Haskell stack.
+Open a terminal, and navigate to this project directory.
+
+If you haven't set up your docker buildx builder yet, run:
+
+```
+docker buildx create --name builder
+docker buildx use builder
+```
+
+
+
+After which, you may build your docker image(s) by running the following command(s).
+
+```
+sh build-docker.sh
+```
+
+Note, Docker Desktop may propmt you for access to your user's directory ("You have opted to share your home director with this container"). This is necessary as pg-recorder build process creates the binary as part of your local stack build.
